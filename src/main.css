@@ -1,0 +1,9 @@
+#wrapper_footer,
+.note,
+#related,
+#mangainfofooter {
+  display: none;
+}
+#imgholder img {
+  margin-bottom: 20px;
+}
