@@ -2,15 +2,18 @@
   "manifest_version": 2,
 
   "name": "mangoext",
-  "description": "Pretty cool extension",
-  "version": "0.1.0",
+  "description": "A revolution in mango technology",
+  "version": "0.2.0",
 
-  "content_scripts": [
-    {
-      "matches": ["http://www.mangareader.net/*"],
-      "css": ["main.css"],
-      "js": ["main.js"],
-      "run_at": "document_idle"
-    }
-  ]
+  "content_scripts": [{
+    "matches": ["http://www.mangareader.net/*"],
+    "css": ["main.css"],
+    "js": ["main.js"],
+    "run_at": "document_end"
+  }],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
 }

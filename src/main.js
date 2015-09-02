@@ -1,20 +1,34 @@
-(function() {
-  if (document.getElementById('mangaimg')) {
-    document.onkeydown = function(e) {
-      if (e.keyCode === 39) {
-        location += '/1';
-      }
+'use strict';
+
+
+(function init() {
+  if (document.querySelector('#mangaimg')) {
+    initChapterList();
+  } else if (document.querySelector('#imgholder')) {
+    initReader();
+  }
+})();
+
+function initChapterList() {
+  document.addEventListener('keydown', function(e) {
+    if (e.keyCode === 39) {
+      window.location += '/1';
     }
-  }
+  }, false);
+}
 
-  var imgholder = document.getElementById('imgholder');
+function initReader() {
+  var imgLink = document.body.querySelector('#imgholder a');
+  var chapter = getChapterLinks();
 
-  if (!imgholder) {
-    return;
-  }
+  initPageLoading(imgLink);
+  initChapterNav(imgLink, chapter);
+}
 
+function getNextPages() {
   var selected = false;
-  var queue = Array.prototype.map.call(document.querySelectorAll('#pageMenu option'), function(option) {
+
+  return Array.prototype.map.call(document.querySelectorAll('#pageMenu option'), function(option) {
     if (!selected) {
       if (option.selected) {
         selected = true;
@@ -27,63 +41,82 @@
   }).filter(function(x) {
     return x !== null;
   });
-  var a = document.body.querySelector('#imgholder a');
-  var _parts = location.pathname.match(/(.+?)\/(\d+)(?:\/\d+)?$/);
-  var baseUrl = _parts[1];
-  var chapter = _parts[2] * 1;
-  var prevUrl = chapter === 1 ? baseUrl : [baseUrl, (chapter - 1)].join('/');
-  var nextUrl = [baseUrl, (chapter + 1)].join('/');
+}
 
-  a.setAttribute('href', nextUrl);
-  document.querySelector('navi')
+function getChapterLinks() {
+  var pathParts = window.location.pathname.match(/(.+?)\/(\d+)(?:\/\d+)?$/);
+  var baseUrl = pathParts[1];
+  var num = pathParts[2] * 1;
 
-  document.onkeydown = function(e) {
-    if (e.keyCode === 37) {
-      location = prevUrl;
-    } else if (e.keyCode === 39) {
-      location = nextUrl;
-    }
+  return {
+    num: num,
+    base: baseUrl.replace('/', ''),
+    prev: num === 1 ? baseUrl : [baseUrl, (num - 1)].join('/'),
+    next: [baseUrl, (num + 1)].join('/')
+  };
+}
+
+function changeChapter(chapters, e) {
+  switch (e.keyCode) {
+    case 37:
+      window.location = chapters.prev;
+      break;
+    case 39:
+      window.location = chapters.next;
   }
+}
 
-  var img;
+function loadNextPage(queue, imgLink, scrollUpdate) {
+  var xhr = new XMLHttpRequest();
+  var url = queue.shift();
 
-  function next() {
-    var xhr = new XMLHttpRequest();
-    var url = queue.shift();
+  xhr.open('GET', window.location.origin + url);
+  xhr.onload = function() {
+    if (xhr.status !== 200) {
+      console.error(xhr.status);
 
-    xhr.open('GET', location.origin + url);
-    xhr.onload = function() {
-      if (xhr.status !== 200) {
-        console.error(xhr.status);
-
-        return;
-      }
-
-      var body = document.implementation.createHTMLDocument().body;
-
-      body.innerHTML = xhr.responseText;
-
-      img = body.querySelector('#imgholder img');
-
-      a.appendChild(img);
-
-      test();
-    }
-
-    xhr.send();
-  }
-
-  function test() {
-    if (!img) {
       return;
     }
 
-    if (document.body.scrollTop >= img.offsetTop - window.innerHeight) {
+    var responseBody = document.implementation.createHTMLDocument().body;
+
+    responseBody.innerHTML = xhr.responseText;
+    imgLink.appendChild(responseBody.querySelector('#imgholder img'));
+    scrollUpdate();
+  };
+
+  xhr.send();
+}
+
+function getLastImg() {
+  return document.querySelector('#imgholder img:last-of-type');
+}
+
+function initChapterNav(imgLink, chapters) {
+  var navi = document.querySelector('#navi');
+
+  if (!navi) {
+    return;
+  }
+
+  imgLink.setAttribute('href', chapters.next);
+
+  navi.querySelector('.prev a').setAttribute('href', chapters.prev);
+  navi.querySelector('.next a').setAttribute('href', chapters.next);
+
+  document.addEventListener('keydown', changeChapter.bind(null, chapters), false);
+}
+
+function initPageLoading(imgLink) {
+  var next = loadNextPage.bind(null, getNextPages(), imgLink, scrollUpdate);
+
+  function scrollUpdate() {
+    if (document.body.scrollTop >= getLastImg().offsetTop - window.innerHeight) {
       next();
     }
   }
 
-  document.onscroll = test;
+  document.addEventListener('scroll', scrollUpdate, false);
 
   next();
-})();
+}
