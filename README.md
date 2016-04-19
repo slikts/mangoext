@@ -7,7 +7,7 @@ A very simple Chrome extension to read mango chapters without clicking.
 ## Features
 
  * Loads images in a single strip as you scroll
- * Fixes link styles: visited links are purple, unvisited links are blue
+ * Fixes link styles: visited links are purple, unvisited links are blue (useful for tracking progress)
  * Removes clutter
  * Left/right arrow keys change chapters
 
