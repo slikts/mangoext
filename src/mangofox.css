@@ -1,0 +1,35 @@
+.tips,
+#footer,
+body > a
+{
+  display: none !important;
+}
+#viewer img {
+  margin: 0 !important;
+  display: block;
+}
+.__img_placeholder__ {
+  min-height: 200px;
+  margin-bottom: 20px;
+}
+a:link {
+  color: #00e !important;
+}
+a:visited {
+  color: #551A8B !important;
+}
+a:active {
+  color: #f00 !important;
+}
+#header,
+#viewer,
+.read_img {
+  background: transparent !important;
+}
+#viewer {
+  border-style: none !important;
+}
+
+body {
+  background: #111 !important;
+}
