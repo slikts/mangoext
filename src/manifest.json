@@ -3,7 +3,7 @@
 
   "name": "mangoext",
   "description": "A revolution in mango technology",
-  "version": "0.2.3",
+  "version": "0.2.4",
 
   "content_scripts": [{
     "matches": ["http://www.mangareader.net/*"],

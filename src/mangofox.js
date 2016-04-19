@@ -36,7 +36,8 @@ function initChapterList() {
 }
 
 let parsedPath = (function parsePath() {
-  let [,name, chapter, page] = location.pathname.match(/\/manga\/(.+?)\/(.+)\/(\d+)/)
+  let match = location.pathname.match(/\/manga\/(.+?)\/(.+)\/(\d+)/)
+  let [,name, chapter, page] = match || []
 
   return {name, chapter, page}
 })()
@@ -100,6 +101,8 @@ function chaptersReady(chapters) {
   c.debug('page queue', queue)
 
   next()
+
+  document.addEventListener('scroll', scrollUpdate, false)
 }
 
 function initReader() {
@@ -183,5 +186,3 @@ function scrollUpdate() {
     next()
   }
 }
-
-document.addEventListener('scroll', scrollUpdate, false)

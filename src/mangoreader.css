@@ -1,0 +1,18 @@
+#wrapper_footer,
+.note,
+#related,
+#mangainfofooter {
+  display: none;
+}
+#imgholder img {
+  margin-bottom: 20px;
+}
+#wrapper_body a:link {
+  color: #00e !important;
+}
+#wrapper_body a:visited {
+  color: #551A8B !important;
+}
+#wrapper_body a:active {
+  color: #f00 !important;
+}
