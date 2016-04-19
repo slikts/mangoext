@@ -3,7 +3,7 @@
 
   "name": "mangoext",
   "description": "A revolution in mango technology",
-  "version": "0.3.0",
+  "version": "0.3.1",
 
   "content_scripts": [{
     "matches": ["http://www.mangareader.net/*"],
@@ -11,7 +11,7 @@
     "js": ["mangoreader.js"],
     "run_at": "document_end"
   }, {
-    "matches": ["http://mangafox.me/manga/*"],
+    "matches": ["http://mangafox.me/*"],
     "css": ["mangofox.css"],
     "js": ["mangofox.js"],
     "run_at": "document_end"
