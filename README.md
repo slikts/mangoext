@@ -2,7 +2,7 @@
 
 #mangoext
 
-A simple Chrome extension to read mango chapters without clicking.
+A very simple Chrome extension to read mango chapters without clicking.
 
 ## Features
 
@@ -15,6 +15,8 @@ A simple Chrome extension to read mango chapters without clicking.
 
  * mangoreader.net
  * mangofox.me
+
+Suggestions are welcome.
 
 ## Installation
 
