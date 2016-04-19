@@ -1,10 +1,12 @@
+![icon](https://raw.githubusercontent.com/slikts/mangoext/master/src/icon128.png)
+
 #mangoext
 
-A simple Chrome extension to read mango chapters in a single strip, without clicking.
+A simple Chrome extension to read mango chapters without clicking.
 
 ## Features
 
- * Loads images as you scroll
+ * Loads images in a single strip as you scroll
  * Fixes link styles: visited links are purple, unvisited links are blue
  * Removes clutter
  * Left/right arrow keys change chapters
