@@ -17,10 +17,10 @@ A very simple Chrome extension to read mango chapters without clicking.
  * mangoreader.net
  * mangofox.me
  * bato.to
- * kissmango.com *****
- * mymangoonline.us *****
+ * kissmango.com *
+ * mymangoonline.us *
 
-***** Adds only chapter navigation since these sites already have long-strip mode.
+* Adds only chapter navigation since these sites already have long-strip mode.
 
 Suggestions are welcome.
 
