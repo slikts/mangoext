@@ -35,6 +35,16 @@
     "css": ["common.css", "mangostream.css"],
     "js": ["common.js", "mangostream.js"],
     "run_at": "document_end"
+  }, {
+    "matches": ["*://*.mangapark.me/*"],
+    "css": ["common.css", "mangopark.css"],
+    "js": ["common.js", "mangopark.js"],
+    "run_at": "document_end"
+  }, {
+    "matches": ["*://*.mangamint.com/*"],
+    "css": ["common.css", "mangomint.css"],
+    "js": ["common.js", "mangomint.js"],
+    "run_at": "document_end"
   }],
   "icons": {
     "16": "icon16.png",
