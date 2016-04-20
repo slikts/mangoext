@@ -13,3 +13,7 @@
 .moderation_bar {
   background: rgba(255, 255, 255, 0.2) !important;
 }
+
+.chapters_list {
+  background: #fff;
+}
