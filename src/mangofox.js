@@ -1,28 +1,5 @@
 'use strict'
 
-var fromPairs = pairs => pairs.reduce((x, [k, v]) => { x[k] = v; return x }, {})
-var partial = (fn, ...args) => ((...newArgs) => fn(...args, ...newArgs))
-var pluck = key => (list => list.map(x => x[key]))
-var unary = (fn) => (x => fn(x))
-var flatten = (sum, x) => sum.concat(x)
-var values = (obj) => Object.keys(obj).map(key => obj[key])
-var zip = (a, b) => a.map((x, i) => [x, b[i]])
-var pairs = obj => zip(Object.keys(obj), values(obj))
-var map = (fn, obj) => fromPairs(pairs(obj).map(([k, v]) => [k, fn(v)]))
-var last = list => list[list.length - 1]
-
-let manifest = chrome.runtime.getManifest()
-
-function c(x) {
-  return map(fn => partial(fn, x), c)
-}
-
-Object.assign(c, fromPairs(['log', 'error', 'debug', 'info'].map(x => [x, partial((method, ...args) => {
-  console[method](manifest.name, ...args)
-}, x)])))
-
-c.log(manifest.version)
-
 ;(function init() {
   if (document.querySelector('#chapters')) {
     initChapterList()
@@ -52,14 +29,19 @@ function observeChapters(chapterSelect, callback) {
   function getChapters(paths) {
     let i = paths.indexOf(parsedPath.chapter)
 
+
     let chapters = fromPairs(
       [['prev', -1], ['next', 1]]
         .map(([k, v]) => [k, makeUrl({chapter: paths[i + v], page: 1})])
     )
     let basePath = `manga/${parsedPath.name}/`
-    if (i === 0) {
+    if (!~i) {
+      c.error('bad chapter')
+    }
+    if (i === 0 || !~i) {
       chapters.prev = basePath
-    } else if (i === paths.length - 1) {
+    }
+    if (i === paths.length - 1 || !~i) {
       chapters.next = basePath
     }
 

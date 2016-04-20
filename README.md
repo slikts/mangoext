@@ -15,6 +15,7 @@ A very simple Chrome extension to read mango chapters without clicking.
 
  * mangoreader.net
  * mangofox.me
+ * bato.to
 
 Suggestions are welcome.
 

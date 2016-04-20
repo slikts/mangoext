@@ -10,16 +10,7 @@ body > a
 }
 .__img_placeholder__ {
   min-height: 200px;
-  margin-bottom: 20px;
-}
-a:link {
-  color: #00e !important;
-}
-a:visited {
-  color: #551A8B !important;
-}
-a:active {
-  color: #f00 !important;
+  margin: 20px 0;
 }
 #header,
 #viewer,
@@ -32,4 +23,8 @@ a:active {
 
 body {
   background: #111 !important;
+}
+
+#updates h3 a {
+  font-weight: bold;
 }

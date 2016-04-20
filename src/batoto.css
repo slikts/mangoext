@@ -1,0 +1,15 @@
+#mainContent {
+  background: transparent !important;
+}
+
+#comic_wrap > div:first-child {
+  position: static !important;
+  margin: auto !important;
+}
+#comic_wrap > div:not(:first-child) {
+  display: none !important;
+}
+
+.moderation_bar {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
