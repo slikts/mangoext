@@ -33,7 +33,7 @@ Updating the extension to add support for additional sites will result in
 the extension being auto-disabled by Chrome due to changing permissions.
 The Chrome menu will have an option to re-enable the extension after it's disabled.
 
-[screenshot](https://raw.githubusercontent.com/slikts/mangoext/assets/permission_ss.png)
+![screenshot](https://raw.githubusercontent.com/slikts/mangoext/assets/permission_ss.png)
 
 ## Changelog
 
