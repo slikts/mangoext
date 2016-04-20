@@ -20,12 +20,12 @@ A very simple Chrome extension to read mango chapters without clicking.
 
 Suggestions are welcome.
 
-Some sites such as [Kissmango](http://kissmanga.com/) have the long-strip
+Some sites, such as [Kissmango](http://kissmanga.com/), have the long-strip
 feature built-in so mangoext is not required.
 
 ## Installation
 
-Install the extension from its [Chrome Web Store](https://goo.gl/7kXexb) page.
+Install the extension from its *[Chrome Web Store](https://goo.gl/7kXexb)* page.
 
 ## Changing permissions
 
@@ -33,7 +33,7 @@ Updating the extension to add support for additional sites will result in
 the extension being auto-disabled by Chrome due to changing permissions.
 The Chrome menu will have an option to re-enable the extension after it's disabled.
 
-[screenshot](https://developer.chrome.com/static/images/perms-hw2-disabled.png)
+[screenshot](https://raw.githubusercontent.com/slikts/mangoext/assets/permission_ss.png)
 
 ## Changelog
 
