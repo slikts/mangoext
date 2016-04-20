@@ -20,7 +20,7 @@ A very simple Chrome extension to read mango chapters without clicking.
  * kissmango.com *
  * mymangoonline.us *
 
-<small>\* Adds only chapter navigation since these sites already have long-strip mode.</small>
+\* Only adds chapter navigation since these sites already have long-strip mode.
 
 Suggestions are welcome.
 
@@ -28,7 +28,7 @@ Suggestions are welcome.
 
 Install the extension from its **[Chrome Web Store](https://goo.gl/7kXexb)** page.
 
-## Changing permissions
+## Permission warning
 
 Updating the extension to add support for additional sites will result in
 the extension being auto-disabled by Chrome due to changing permissions.
