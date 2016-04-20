@@ -25,7 +25,7 @@ feature built-in so mangoext is not required.
 
 ## Installation
 
-Install the extension from its *[Chrome Web Store](https://goo.gl/7kXexb)* page.
+Install the extension from its **[Chrome Web Store](https://goo.gl/7kXexb)** page.
 
 ## Changing permissions
 
