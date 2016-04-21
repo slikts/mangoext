@@ -1,4 +1,4 @@
-![icon](https://raw.githubusercontent.com/slikts/mangoext/master/src/icon128.png)
+![icon](https://raw.githubusercontent.com/slikts/mangoext/assets/icon128.gif)
 
 #mangoext
 
